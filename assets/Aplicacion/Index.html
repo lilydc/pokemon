@@ -1,0 +1,45 @@
+<DOCTYPE! html>
+    <html ng-app="pokemon">
+
+    <head>
+        <link rel="stylesheet" href="Librerias/CSS/css/bootstrap.css">
+    </head>
+    <!--APLICACION-->
+
+    <body>
+
+        <div>
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Menu</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#/inicio">Inicio</a></li>
+                    <li><a href="#/pokemon">Pokemon</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+            <div ui-view>Registra tu Pokemon</div>
+        </div>
+
+        <!--LIBRERIA ANGULAR-->
+
+        <script src="Librerias/Javascript/angular.min.js"></script>
+
+        <!--MODULOS DE LA LIBRERIA ANGULAR-->
+        <!--ctrl+barra espaciador-->
+        <script src="Librerias/Javascript/angular-ui-router.js"></script>
+
+
+        <!--APLICACION-->
+        <script src="app.js"></script>
+
+
+        <!--CONTROLADORES-->
+        <script src="Vistas/InicioCtrl.js"></script>
+        <script src="Vistas/PokemonCtrl.js"></script>
+    </body>
+
+    </html>

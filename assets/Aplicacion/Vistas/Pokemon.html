@@ -1,0 +1,145 @@
+<h2>Registrar un nuevo Pokemon</h2>
+<div class="row">
+    <div class="col-sm-4">
+        <div>
+        </div>
+    </div>
+    <div class="col-sm-4">
+        <form ng-submit="ingresarPokemon()">
+            <div class="form-group">
+                <label>Nombre : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.nombre" required>
+            </div>
+            <div class="form-group">
+                <label>Descripción : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.descripcion" required>
+            </div>
+            <div class="form-group">
+                <label>Imagen : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.imagen" required>
+            </div>
+            <div class="form-group">
+                <label>Número de Pokemon : </label>
+                <input class="form-control" type="number" ng-model="nuevoPokemon.numeroDePokemon" required>
+            </div>
+            <div class="form-group">
+                <label>Habilidad : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.habilidad" required>
+            </div>
+            <div class="form-group">
+                <label>Habilidad Oculta : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.habilidadOculta" required>
+            </div>
+            <div class="form-group">
+                <label>Color : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.color" required>
+            </div>
+            <div class="form-group">
+                <label>Velocidad : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.velocidad" required>
+            </div>
+            <div class="form-group">
+                <label>Fortaleza : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.fortaleza" required>
+            </div>
+            <div class="form-group">
+                <label>Precisión : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.precision" required>
+            </div>
+            <div class="form-group">
+                <label>Resistencia : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.resistencia" required>
+            </div>
+            <div class="form-group">
+                <label>Salto : </label>
+                <input class="form-control" type="text" ng-model="nuevoPokemon.salto" required>
+            </div>
+            <br>
+            <button class="btn btn-block btn-success" ng-disabled="botonCrearDeshabilitado" type="submit">Registrar Pokemon</button>
+        </form>
+    </div>
+    <div class="col-sm-4">
+        <div>
+            <!--<h1>Pokemon por registrarse:</h1>
+<h2>{{nuevoPokemon.nombre}}</h2>
+<p>Descripcion : {{nuevoPokemon.descripcion}}</p>
+<p>Numero de Pokemon : {{nuevoPokemon.numeroDePokemon}}</p>-->
+        </div>
+    </div>
+
+</div>
+
+<h3>Pokemons ingresados</h3>
+
+<div class="row">
+    <!--   ng-repeat="SingularArreglo in ARREGLO"-->
+    <div class="col-sm-4 text-center" ng-repeat="pokemon in pokemons" ng-init="pokemon.mostrar = true">
+
+        <div ng-show="pokemon.mostrar">
+            <h2>Pokemon: {{pokemon.nombre}}</h2>
+            <p>{{pokemon.descripcion}}</p>
+            <p>{{pokemon.numeroDePokemon}}</p>
+            <button class="btn btn-block btn-warning" ng-click="pokemon.mostrar = !pokemon.mostrar">Editar</button>
+            <button class="btn btn-block btn-danger" ng-click="eliminarPokemon(pokemon)">Borrar</button>
+            <a class="btn btn-block btn-info" href="#/nombre/{{pokemon.nombre}}/pokemon">Editar Pokemon</a>
+        </div>
+
+        <div ng-hide="pokemon.mostrar">
+            <form ng-submit="editarPokemon(pokemon)">
+                <div class="form-group">
+                    <label>Nombre : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.nombre" required>
+                </div>
+                <div class="form-group">
+                    <label>Descripción : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.descripcion" required>
+                </div>
+                <div class="form-group">
+                    <label>Imagen : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.imagen" required>
+                </div>
+                <div class="form-group">
+                    <label>Número de Pokemon : </label>
+                    <input class="form-control" type="number" ng-model="nuevoPokemon.numeroDePokemon" required>
+                </div>
+                <div class="form-group">
+                    <label>Habilidad : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.habilidad" required>
+                </div>
+                <div class="form-group">
+                    <label>Habilidad Oculta : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.habilidadOculta" required>
+                </div>
+                <div class="form-group">
+                    <label>Color : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.color" required>
+                </div>
+                <div class="form-group">
+                    <label>Velocidad : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.velocidad" required>
+                </div>
+                <div class="form-group">
+                    <label>Fortaleza : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.fortaleza" required>
+                </div>
+                <div class="form-group">
+                    <label>Precisión : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.precision" required>
+                </div>
+                <div class="form-group">
+                    <label>Resistencia : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.resistencia" required>
+                </div>
+                <div class="form-group">
+                    <label>Salto : </label>
+                    <input class="form-control" type="text" ng-model="nuevoPokemon.salto" required>
+                </div>
+
+                <br>
+                <button class="btn btn-block btn-info" ng-disabled="botonCrearDeshabilitado" type="submit">Actualizar Pokemon</button>
+            </form>
+            <button class="btn btn-block" ng-disabled="botonCrearDeshabilitado" ng-click="pokemon.mostrar = !pokemon.mostrar">Cancelar</button>
+
+        </div>
+    </div>
+</div>
