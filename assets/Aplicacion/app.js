@@ -14,20 +14,5 @@ aplicacion.config(function ($stateProvider, $urlRouterProvider) {
             url: "/pokemon",
             templateUrl: "Vistas/Pokemon.html",
             controller: "PokemonCtrl"
-                /*})
-.state('tragos', {
-        url: "/tragos",
-        templateUrl: "Vistas/Tragos.html",
-        controller: "TragosCtrl"
-    })
-    .state('chumas', {
-        url: "/usuario/:idUsuario/chuma",
-        templateUrl: "Vistas/Chumas.html",
-        controller: "ChumasCtrl"
-    })
-    .state('gastos', {
-            url: "/usuario/:idUsuario/chuma/:idChuma/gastos",
-            templateUrl: "Vistas/Gastos.html",
-            controller: "GastosCtrl"*/
         });
 });

@@ -18,8 +18,7 @@ module.exports = {
             required: true
         },
         imagen: {
-            collection: "imagenes",
-            via: "nombrePokemon"
+            type: 'string'
         },
         numeroDePokemon: {
             type: 'integer',
@@ -37,19 +36,19 @@ module.exports = {
             type: 'string'
         },
         velocidad: {
-            type: 'string',
+            type: 'integer',
         },
         fortaleza: {
-            type: 'string'
+            type: 'integer'
         },
         precision: {
-            type: 'string'
+            type: 'integer'
         },
         resistencia: {
-            type: 'string'
+            type: 'integer'
         },
         salto: {
-            type: 'string'
+            type: 'integer'
         }
     }
 };

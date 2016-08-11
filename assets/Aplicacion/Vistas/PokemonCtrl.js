@@ -15,28 +15,28 @@ aplicacion.controller("PokemonCtrl", function ($scope, $http) {
         salto: ""
     }
 
-    //$scope.botonCrearDeshabilitado = false;
+    $scope.botonCrearDeshabilitado = false;
 
     $scope.ingresarPokemon = function () {
 
-        //$scope.botonCrearDeshabilitado = true;
+        $scope.botonCrearDeshabilitado = true;
 
         $http({
             method: "POST",
-            url: "http://localhost:1337/Pokemon",
+            url: "http: //localhost:1337/Pokemon",
             data: $scope.nuevoPokemon
         }).then(
             function (respuesta) {
 
-                //$scope.cargarUsuarios();
-                $scope.pokemon.push(respuesta.data);
+                //$scope.cargarPokemon();
+                $scope.pokemons.push(respuesta.data);
                 $scope.resetearNuevoPokemon();
-                //$scope.botonCrearDeshabilitado = false;
+                $scope.botonCrearDeshabilitado = false;
 
                 console.log(respuesta);
             },
             function (error) {
-                //$scope.botonCrearDeshabilitado = false;
+                $scope.botonCrearDeshabilitado = false;
                 console.log(error);
             });
 
@@ -82,12 +82,10 @@ aplicacion.controller("PokemonCtrl", function ($scope, $http) {
     $scope.cargarPokemon();
 
     $scope.editarPokemon = function (pokemon) {
-        /* if (pokemon.numeroDePokemon) {
-             pokemon.descripcion = pokemon.nuevaFecha
-         }*/
+        console.log("pokemon.nombre");
         $http({
             method: "PUT",
-            url: "http://localhost:1337/Pokemon/" + pokemon.nombre,
+            url: "http://localhost:1337/Pokemon/" + pokemon.id,
             data: {
                 nombre: pokemon.nombre,
                 descripcion: pokemon.descripcion,
@@ -105,24 +103,6 @@ aplicacion.controller("PokemonCtrl", function ($scope, $http) {
         }).then(
             function (respuesta) {
                 pokemon.mostrar = !pokemon.mostrar
-            },
-            function (error) {
-                console.log(error);
-            });
-    }
-
-    $scope.eliminarPokemon = function (pokemon) {
-        $http({
-            method: "DELETE",
-            url: "http://localhost:1337/Pokemon/" + pokemon.nombre
-        }).then(
-            function (respuesta) {
-
-                for (var i = 0; i < $scope.pokemon.length; i++) {
-                    if ($scope.pokemons[i].id == pokemon.id) {
-                        $scope.pokemons.splice(i, 1);
-                    }
-                }
             },
             function (error) {
                 console.log(error);
